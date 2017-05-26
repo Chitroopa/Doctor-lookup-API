@@ -8,10 +8,6 @@
 
 _Doctor finder allows user to search doctors for medical issue_
 
-_BetterDoctor API is used to find the doctor_
-
-_Google API is used to find latitude and longitude of user location_
-
 ### Setup/Installation Requirements
 
 * _In the command line, run:_
@@ -36,6 +32,10 @@ gulp serve
 ```
 localhost:3000
 ```
+
+_BetterDoctor API is used to find the doctor_
+
+_Google API is used to find latitude and longitude of user location_
 
 ### Known Bugs
 
