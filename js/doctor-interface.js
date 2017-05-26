@@ -5,7 +5,9 @@ var displayResult = function(searchResult) {
   $('#output').text("");
   var acceptsNewPatientsFormat;
 
+
   for(var j=0;j<searchResult.length;j++){
+    var doctorAddress = "";
     if(searchResult[j].acceptsNewPatients === true)
     {
       acceptsNewPatientsFormat = 'Yes';
@@ -14,6 +16,11 @@ var displayResult = function(searchResult) {
     {
       acceptsNewPatientsFormat = 'No';
     }
+
+    for(var count=0; count<searchResult[j].address.length; count++) {
+      doctorAddress = doctorAddress +  '<p class="card-text">'+ searchResult[j].address[count] +'</p>';
+    }
+
     $('#output').append(
       '<div class="col-md-5 card">'+
         '<div class="card-header">'+
@@ -25,7 +32,7 @@ var displayResult = function(searchResult) {
           '<p><span class="result-title">Accept New Patients: </span>'+ acceptsNewPatientsFormat +'</p>'+
           '<p><span class="result-title">Phone number: </span>'+ searchResult[j].phone +'</p>'+
           '<h4 class="card-title">Address</h4>'+
-          '<p class="card-text">'+ searchResult[j].street +', '+ searchResult[j].city +', '+ searchResult[j].state+'-'+ searchResult[j].zipCode +'</p>'+
+          '<p>'+ doctorAddress +'</p>'+
         '</div>'+
       '</div>'
     );
@@ -36,12 +43,8 @@ $('document').ready(function(){
   $('#form-one').submit(function(event){
     var userInputMedicalIssue = $('#medical-issue').val();
     $('#medical-issue').val("");
-
-    console.log(userInputMedicalIssue);
     var newDoctorLookup = new Doctor();
-    console.log(newDoctorLookup.getDoctors(userInputMedicalIssue, displayResult));
-    // $("#output").text(newDino.getDino(displayDino));
+    newDoctorLookup.getDoctors(userInputMedicalIssue, displayResult);
     event.preventDefault();
-
   });
 });

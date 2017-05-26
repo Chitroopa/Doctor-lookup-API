@@ -32,14 +32,14 @@ Doctor.prototype.getDoctors = function(medicalIssue, displayResult) {
           addressArray.push(addressformat);
         }
         var addressArraysorted = Array.from(new Set(addressArray));
-        console.log(addressArray);
-        console.log(addressArraysorted);
-        doctorDetails = {firstName: response.data[i].profile.first_name,lastName: response.data[i].profile.last_name,specialtyName: response.data[i].specialties[0].actor,specialtyDesc: response.data[i].specialties[0].description,acceptsNewPatients: response.data[i].practices[0].accepts_new_patients,phone: response.data[i].practices[0].phones[0].number,street: response.data[i].practices[0].visit_address.street,city: response.data[i].practices[0].visit_address.city,state: response.data[i].practices[0].visit_address.state,zipCode: response.data[i].practices[0].visit_address.zip};
+        // console.log(addressArray);
+        // console.log(addressArraysorted);
+        doctorDetails = {firstName: response.data[i].profile.first_name,lastName: response.data[i].profile.last_name,specialtyName: response.data[i].specialties[0].actor,specialtyDesc: response.data[i].specialties[0].description,acceptsNewPatients: response.data[i].practices[0].accepts_new_patients,phone: response.data[i].practices[0].phones[0].number,address: addressArraysorted};
         searchResult.push(doctorDetails);
         doctorDetails = {};
       }
-      console.log(searchResult);
-      console.log(searchResult.length);
+      // console.log(searchResult);
+      // console.log(searchResult.length);
       displayResult(searchResult);
     }
     else
@@ -48,7 +48,7 @@ Doctor.prototype.getDoctors = function(medicalIssue, displayResult) {
     }
   })
  .fail(function(error){
-    console.log("fail");
+    $('#output').text(error.responseJSON.message);
   });
 };
 
