@@ -8,7 +8,7 @@ Doctor.prototype.getDoctors = function(medicalIssue, displayResult) {
   var doctorDetails = {};
   var searchResult = [];
 
-  $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location=47.676%2C-122.205%2C%2010&user_location=47.676%2C-122.205&skip=0&limit=20&user_key=' + apiKey)
+  $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location=47.606%2C-122.332%2C%2010&user_location=47.606%2C-122.332&skip=0&limit=20&user_key=' + apiKey)
  .then(function(response) {
     var resultCount = response.data.length;
     if (resultCount > 0)

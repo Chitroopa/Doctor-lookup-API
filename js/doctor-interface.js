@@ -14,14 +14,21 @@ var displayResult = function(searchResult) {
     {
       acceptsNewPatientsFormat = 'No';
     }
-    $('#output').append('<h4>'+ searchResult[j].firstName +" "+ searchResult[j].lastName +'</h4>'+
-    '<p><span class="result-title">Accept New Patients: </span>'+ acceptsNewPatientsFormat +'</p>'+
-    '<p><span class="result-title">Specialties: </span>'+ searchResult[j].specialtyName +'</p>'+
-    '<p><span class="result-title">Description: </span>'+ searchResult[j].specialtyDesc +'</p>'+
-    '<p><span class="result-title">Phone number: </span>'+ searchResult[j].phone +'</p>'+
-    '<p><span class="result-title">Address: </span>'+ '</p>'+
-    '<p>'+ searchResult[j].street +'</p>'+
-    '<p>'+ searchResult[j].city +','+ searchResult[j].state+'-'+ searchResult[j].zipCode +'</p>');
+    $('#output').append(
+      '<div class="col-md-5 card">'+
+        '<div class="card-header">'+
+          '<h1>'+ searchResult[j].firstName +" "+ searchResult[j].lastName +'</h1>'+
+          '<p>'+ searchResult[j].specialtyName +'</p>'+
+        '</div>'+
+        '<div class="card-block">'+
+          '<p class="card-text">'+ searchResult[j].specialtyDesc +'<p>'+
+          '<p><span class="result-title">Accept New Patients: </span>'+ acceptsNewPatientsFormat +'</p>'+
+          '<p><span class="result-title">Phone number: </span>'+ searchResult[j].phone +'</p>'+
+          '<h4 class="card-title">Address</h4>'+
+          '<p class="card-text">'+ searchResult[j].street +', '+ searchResult[j].city +', '+ searchResult[j].state+'-'+ searchResult[j].zipCode +'</p>'+
+        '</div>'+
+      '</div>'
+    );
   }
 };
 
