@@ -16,11 +16,9 @@ Doctor.prototype.getDoctors = function(medicalIssue, city, displayResult, clearR
     latitude = parseFloat((response.results[0].geometry.location.lat).toFixed(3));
     longitude = parseFloat((response.results[0].geometry.location.lng).toFixed(3));
     searchCity = response.results[0].formatted_address;
-    console.log(searchCity);
 
-    $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location='+latitude+'%2C%20'+longitude+'%2C%2010&user_location='+ latitude+'%2C%20'+longitude+'&skip=0&limit=20&user_key=' + apiKey)
+    $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location='+latitude+'%2C%20'+longitude+'%2C%2010&user_location='+ latitude+'%2C%20'+longitude+'&skip=0&limit=15&user_key=' + apiKey)
    .then(function(response) {
-     console.log(response);
       var resultCount = response.data.length;
       if (resultCount > 0)
       {
@@ -44,7 +42,6 @@ Doctor.prototype.getDoctors = function(medicalIssue, city, displayResult, clearR
           }
           if (response.data[i].specialties === undefined)
           {
-            console.log(response.data[i]);
             specialty = 'General';
             description = 'General';
           }
@@ -56,7 +53,6 @@ Doctor.prototype.getDoctors = function(medicalIssue, city, displayResult, clearR
           var addressArraysorted = Array.from(new Set(addressArray));
 
           doctorDetails = {firstName: response.data[i].profile.first_name,lastName: response.data[i].profile.last_name,specialtyName: specialty,specialtyDesc: description,acceptsNewPatients: response.data[i].practices[0].accepts_new_patients,address: addressArraysorted, img: response.data[i].profile.image_url, bio: response.data[0].profile.bio };
-          console.log(doctorDetails);
           searchResult.push(doctorDetails);
           doctorDetails = {};
         }
