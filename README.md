@@ -7,7 +7,9 @@
 ## Description
 
 _Doctor finder allows user to search doctors for medical issue_
+
 _BetterDoctor API is used to find the doctor_
+
 _Google API is used to find latitude and longitude of user location_
 
 ### Setup/Installation Requirements
@@ -34,13 +36,16 @@ gulp serve
 ```
 localhost:3000
 ```
-###Known Bugs
+
+### Known Bugs
+
 No known bugs yet.
 
 
 ## Technologies Used
 
 _javaScript, jQuery, HTML, Saas, bootstrap_
+
 _API - BetterDoctor, Google_
 
 ### License
