@@ -9,12 +9,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Doctor lookup</h1>
-      </div>
-      <form id="form-one">
+      <img id="cover" src="img/cover.png" alt="" />
+      <form id="form-one" class="jumbotron">
+        <h4>Enter the below details and find doctors near you!!</h4><br>
         <div class="form-group row">
-          <label class="col-sm-2 form-control-label">Medical issue</label>
+          <label class="col-sm-2 form-control-label">Medical problem</label>
           <div class="col-sm-6">
             <input type="text" name="name" class="form-control" id="medical-issue" required>
           </div>
@@ -25,7 +24,7 @@
             <input type="text" name="name" class="form-control" id="city" required>
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn bg-primary">Find Doctor</button>
       </form>
       <div id="output" class="row"></div>
     </div>

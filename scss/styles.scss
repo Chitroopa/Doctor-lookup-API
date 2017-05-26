@@ -1,12 +1,28 @@
-// * {
-//   border: 1px solid;
-// }
+$green: #009385;
+$font: white;
+$grey: #EDEDED;
+
+#cover {
+  width: 1140px;
+  height: auto;
+}
 
 .card {
-  border: 1px solid;
-  padding-right: 20px;
-  padding-left: 20px;
-  height: 20%;
   margin: 30px 30px 30px 30px;
-  background-color: lightgray;
+  .result-title {
+    font-weight: bold;
+  }
+  .card-header {
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $green;
+    border: 1px solid;
+    color: $font;
+  }
+  .card-block{
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $grey;
+    border: 1px solid;
+  }
 }
