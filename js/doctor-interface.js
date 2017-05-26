@@ -6,7 +6,7 @@ var displayResult = function(searchResult) {
   var acceptsNewPatientsFormat;
 
   for(var j=0;j<searchResult.length;j++){
-    if(searchResult[j].acceptsNewPatients == true)
+    if(searchResult[j].acceptsNewPatients === true)
     {
       acceptsNewPatientsFormat = 'Yes';
     }
